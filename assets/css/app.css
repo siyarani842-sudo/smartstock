@@ -1,0 +1,429 @@
+/* =========================================================
+   SMARTSTOCK AI - APP ADDITIONS
+   Styles for forms, CRUD tables, pagination, toasts and
+   other components added in the modular PHP version.
+   (style.css is the original design and stays untouched)
+========================================================= */
+
+/* make the HTML hidden attribute always win over display rules */
+[hidden] { display: none !important; }
+
+.sidebar-logo { color: white; }
+
+a.topbar-icon,
+a.user-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-danger {
+    background: var(--red);
+    color: white;
+}
+
+.btn-danger:hover { background: #d92d20; }
+
+.btn-sm {
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 10px;
+}
+
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.icon-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #98a2b3;
+    background: transparent;
+    font-size: 11px;
+    transition: .15s;
+}
+
+.icon-btn:hover { background: #f3f4f7; color: var(--primary); }
+.icon-btn.danger:hover { background: var(--red-light); color: var(--red); }
+
+.row-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    justify-content: flex-end;
+}
+
+.inline-form { display: inline; }
+
+/* ---------- Status extras ---------- */
+
+.status.cancelled,
+.status.inactive {
+    color: #475467;
+    background: #f2f4f7;
+}
+
+.status.purchase {
+    color: #5925dc;
+    background: var(--purple-light);
+}
+
+.status.sale {
+    color: #175cd3;
+    background: var(--blue-light);
+}
+
+/* ---------- Product thumbs with real images ---------- */
+
+.product-thumb {
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Forms (full page) ---------- */
+
+.form-card {
+    max-width: 900px;
+    padding: 24px;
+}
+
+.form-card .form-grid { gap: 18px; }
+
+.form-group textarea {
+    min-height: 90px;
+    border: 1px solid #dfe3ea;
+    border-radius: 8px;
+    outline: 0;
+    padding: 10px 11px;
+    font-size: 10px;
+    font-family: inherit;
+    color: var(--text);
+    resize: vertical;
+}
+
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 255, .08);
+}
+
+.form-group input[type="file"] {
+    padding: 9px 11px;
+    height: auto;
+}
+
+.form-group .hint {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.form-group label .req { color: var(--red); }
+
+.field-error {
+    color: var(--red);
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.has-error input,
+.has-error select,
+.has-error textarea { border-color: var(--red) !important; }
+
+.form-section-title {
+    grid-column: 1 / -1;
+    font-size: 11px;
+    font-weight: 700;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+    margin-top: 4px;
+    padding-top: 16px;
+}
+
+.form-section-title:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+
+.image-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.image-preview img {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.image-preview label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500 !important;
+}
+
+/* ---------- Alerts ---------- */
+
+.alert-box {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 10px;
+    margin-bottom: 16px;
+    border: 1px solid;
+}
+
+.alert-box.error { background: var(--red-light); border-color: #fecdca; color: #b42318; }
+.alert-box.info  { background: var(--blue-light); border-color: #b2ddff; color: #175cd3; }
+.alert-box.success { background: var(--green-light); border-color: #abefc6; color: #087443; }
+
+.alert-box ul { margin: 6px 0 0 16px; }
+
+/* ---------- Toolbar filters (GET forms) ---------- */
+
+.table-toolbar { flex-wrap: wrap; }
+
+.table-toolbar form,
+form.table-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.toolbar-spacer { flex: 1; }
+
+.date-input {
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0 10px;
+    color: #667085;
+    background: white;
+    font-size: 10px;
+    outline: none;
+    font-family: inherit;
+}
+
+/* ---------- Pagination ---------- */
+
+.pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pager { display: flex; gap: 4px; }
+
+.pager a {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    color: #475467;
+    font-weight: 600;
+}
+
+.pager a:hover { border-color: var(--primary); color: var(--primary); }
+.pager a.active { background: var(--primary); border-color: var(--primary); color: white; }
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px !important;
+    color: var(--muted);
+}
+
+.empty-state i {
+    font-size: 26px;
+    color: #d0d5dd;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty-block {
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ---------- Toast stack ---------- */
+
+.toast-stack {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 5000;
+}
+
+.toast-stack .toast {
+    position: static;
+    pointer-events: auto;
+}
+
+.toast.error .toast-icon { background: rgba(240, 68, 56, .15); color: #f97066; }
+.toast.warning .toast-icon { background: rgba(247, 144, 9, .15); color: #fdb022; }
+
+.toast.hide { opacity: 0; transform: translateY(20px); }
+
+/* ---------- Order line items ---------- */
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    grid-column: 1 / -1;
+}
+
+.items-table th {
+    text-align: left;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: #7b8497;
+    padding: 8px 6px;
+    background: #fafbfc;
+}
+
+.items-table td { padding: 6px; vertical-align: top; }
+
+.items-table select,
+.items-table input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #dfe3ea;
+    border-radius: 8px;
+    padding: 0 9px;
+    font-size: 10px;
+    outline: 0;
+    background: white;
+}
+
+.items-table .line-total {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 38px;
+    white-space: nowrap;
+}
+
+.items-footer {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-total {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* ---------- Detail view ---------- */
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    padding: 20px;
+}
+
+.detail-grid div span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    margin-bottom: 4px;
+}
+
+.detail-grid div strong { font-size: 11px; }
+
+.mb-20 { margin-bottom: 20px; }
+.mt-20 { margin-top: 20px; }
+.text-right { text-align: right; }
+.muted { color: var(--muted); }
+.nowrap { white-space: nowrap; }
+
+/* ---------- Supplier card extras ---------- */
+
+.supplier-card .supplier-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    justify-content: flex-end;
+}
+
+.supplier-contact {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: grid;
+    gap: 3px;
+}
+
+.supplier-avatar.green {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+/* ---------- Search results ---------- */
+
+.search-group { margin-bottom: 20px; }
+
+.search-group h3 {
+    font-size: 12px;
+    padding: 16px 18px 0;
+}
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+    text-align: center;
+    color: #98a2b3;
+    font-size: 9px;
+    padding: 30px 0 5px;
+}
+
+/* ---------- Movement quantity colors ---------- */
+
+.qty-in { color: var(--green); font-weight: 700; }
+.qty-out { color: var(--red); font-weight: 700; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+    .detail-grid { grid-template-columns: 1fr 1fr; }
+    .header-actions { width: 100%; }
+    .header-actions .btn { flex: 1; }
+    .toast-stack { left: 15px; right: 15px; bottom: 15px; }
+    .items-table { display: block; overflow-x: auto; }
+}
